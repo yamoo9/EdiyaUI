@@ -1,0 +1,43 @@
+{
+  "name": "cra-template-ko-craco",
+  "version": "1.0.3",
+  "description": "Create React App 템플릿 한국어 버전입니다.",
+  "scripts": {
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "react-scripts eject",
+    "serve": "serve -s build",
+    "build-and-serve": "npm run build && npm run serve"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2% in KR",
+      "not dead",
+      "not op_mini all",
+      "ie > 10"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "dependencies": {
+    "@craco/craco": "^5.6.3",
+    "@testing-library/jest-dom": "^5.1.1",
+    "@testing-library/react": "^9.4.0",
+    "@testing-library/user-event": "^8.1.0",
+    "classnames": "^2.2.6",
+    "craco-alias": "^2.1.0",
+    "node-sass": "^4.13.1",
+    "react": "^16.12.0",
+    "react-app-polyfill": "^1.0.6",
+    "react-dom": "^16.12.0",
+    "react-scripts": "^3.3.1",
+    "serve": "^11.3.0"
+  }
+}

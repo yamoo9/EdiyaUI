@@ -1,0 +1,23 @@
+@keyframes transform-none {
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@keyframes moveUpAndThenBackOut {
+  30% {
+    transform: translateY(-100px);
+  }
+  50% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(100px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
