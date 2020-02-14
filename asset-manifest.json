@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/EdiyaUI/static/css/main.aeba09cb.chunk.css",
+    "main.js": "/EdiyaUI/static/js/main.a5aeff23.chunk.js",
+    "main.js.map": "/EdiyaUI/static/js/main.a5aeff23.chunk.js.map",
+    "runtime-main.js": "/EdiyaUI/static/js/runtime-main.41118cb1.js",
+    "runtime-main.js.map": "/EdiyaUI/static/js/runtime-main.41118cb1.js.map",
+    "static/js/2.437295a7.chunk.js": "/EdiyaUI/static/js/2.437295a7.chunk.js",
+    "static/js/2.437295a7.chunk.js.map": "/EdiyaUI/static/js/2.437295a7.chunk.js.map",
+    "static/js/3.0cb68cc5.chunk.js": "/EdiyaUI/static/js/3.0cb68cc5.chunk.js",
+    "static/js/3.0cb68cc5.chunk.js.map": "/EdiyaUI/static/js/3.0cb68cc5.chunk.js.map",
+    "index.html": "/EdiyaUI/index.html",
+    "precache-manifest.852a30133a3888f37a270b99fa0804d2.js": "/EdiyaUI/precache-manifest.852a30133a3888f37a270b99fa0804d2.js",
+    "service-worker.js": "/EdiyaUI/service-worker.js",
+    "static/css/main.aeba09cb.chunk.css.map": "/EdiyaUI/static/css/main.aeba09cb.chunk.css.map",
+    "static/js/2.437295a7.chunk.js.LICENSE.txt": "/EdiyaUI/static/js/2.437295a7.chunk.js.LICENSE.txt",
+    "static/media/AppHomeLink.scss": "/EdiyaUI/static/media/ediya-logo.f91b43ac.svg",
+    "static/media/go-to-top.9f1111d2.svg": "/EdiyaUI/static/media/go-to-top.9f1111d2.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.41118cb1.js",
+    "static/js/2.437295a7.chunk.js",
+    "static/css/main.aeba09cb.chunk.css",
+    "static/js/main.a5aeff23.chunk.js"
+  ]
+}
