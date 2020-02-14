@@ -2,6 +2,31 @@
 
 HTML, CSS, JavaScript, DOM API 순수 웹 기술로 작성된 UI를 React App으로 재구성하는 실습을 진행합니다.
 
+## 목차
+
+1. [프로젝트 생성](#1-프로젝트-생성) 
+1. [환경 구성 파일 이름 변경](#2-환경-구성-파일-이름-변경) 
+1. [Public 디렉토리 에셋 교체 (덮어쓰기)](#3-public-디렉토리-에셋-교체-덮어쓰기) 
+1. [검색앤진 최적화 / 오픈 그래프 프로토콜](#4-검색앤진-최적화--오픈-그래프-프로토콜)   
+1. [API 디렉토리 이동](#5-api-디렉토리-이동) 
+1. [AppHeader 컨텍스트](#6-appheader-컨텍스트)   
+1. [App 컴포넌트 ← AppHeader](#7-app-컴포넌트-←-appheader)   
+1. [AppHeader 컴포넌트](#8-appheader-컴포넌트)   
+1. [AppHomeLink 컴포넌트](#9-apphomelink-컴포넌트)   
+1. [AppNavigation 컴포넌트](#10-appnavigation-컴포넌트)   
+1. [UiButton 컴포넌트](#11-uibutton-컴포넌트)   
+1. [AppMain 컨텍스트](#12-appmain-컨텍스트)   
+1. [App 컴포넌트 ← AppMain](#13-app-컴포넌트-←-appmain)   
+1. [AppMain 컴포넌트](#14-appmain-컴포넌트)   
+1. [BeverageList 컴포넌트](#15-beveragelist-컴포넌트)   
+1. [BeverageItem 컴포넌트](#16-beverageitem-컴포넌트)   
+1. [App 컴포넌트 ← GoToTop](#17-app-컴포넌트-←-gototop)   
+1. [GoToTop 컴포넌트](#18-gototop-컴포넌트)   
+1. [App 컴포넌트 ← AnimateWrapper](#19-app-컴포넌트-←-animatewrapper)   
+1. [AnimateWrapper 컴포넌트](#20-animatewrapper-컴포넌트)   
+1. [GitHub Pages 설정 및 배포](#21-github-pages-배포)   
+1. [GitHub 배포](#21-3-배포)     
+
 ## 1. 프로젝트 생성
 
 [cra-template-ko-craco](https://www.npmjs.com/package/cra-template-ko-craco) 템플릿을 사용해 새로운 실습 프로젝트를 생성합니다.
@@ -764,3 +789,78 @@ AnimateWrapper.defaultProps = {
 
 export default AnimateWrapper;
 ```
+
+## 21. GitHub Pages 배포
+
+자신의 GitHub 저장소에 `deploy` 명령어를 사용해 배포(production) 할 수 있도록 구성합니다.
+
+### 21-1. gh-pages 패키지 설치
+
+[GitHub Pages](https://pages.github.com/)에 명령어로 배포하려면 먼저 [gh-pages](https://www.npmjs.com/package/gh-pages) 패키지를 설치해야 합니다.
+
+```bash
+$ npm i gh-pages
+```
+
+### 21-2. package.json 스크립트 및 홈페이지 설정
+
+`package.json` 파일에 다음 코드를 추가합니다. 
+`deploy` 명령이 실행되면 `predeploy` 명령을 자동으로 실행하며, 
+`homepage`에 등록된 GitHub 저장소에 배포됩니다.
+
+```js
+{
+  "scripts": {
+    // ...
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b master -d build -e docs"
+  },
+  "homepage": "https://{사용자계정}.github.io/{저장소이름}",
+}
+```
+
+#### gh-pages 사용법
+
+`gh-pages` CLI 사용법은 다음과 같습니다.
+
+```sh
+사용법: gh-pages [옵션]
+
+옵션:
+  -V, --version            버전 번호를 출력
+  -d, --dist <dist>        모든 소스 파일의 기본(빌드) 디렉토리
+  -s, --src <src>          게시 할 파일을 선택하는데 사용되는 패턴(기본값: "** / *")
+  -b, --branch <branch>    푸시(push) 하려는 브랜치 이름(기본값: "gh-pages")
+  -e, --dest <dest>        배포 할 저장소의 특정 디렉토리(루트 기준 → 기본값: ".")
+  -a, --add                추가만 하고, 기존 파일은 제거하지 않음
+  -x, --silent             원격 저장소 URL을 출력 안 함
+  -m, --message <message>  커밋 메시지 (기본값: "업데이트")
+  -g, --tag <tag>          커밋 할 태그 추가
+  --git <git>              git 실행 파일 경로 (기본값: "git")
+  -t, --dotfiles           닷(.)파일 포함
+  -r, --repo <repo>        푸시하려는 원격 저장소 URL
+  -p, --depth <depth>      복제 깊이 (기본값: 1)
+  -o, --remote <name>      원격 저장소 이름 (기본값: "origin")
+  -u, --user <address>     사용자의 이름과 이메일 (기본값은 git config). 형식은 "계정이름 <email@example.com>"
+  -v, --remove <pattern>   주어진 패턴과 일치하는 파일 제거 (--add와 함께 사용하는 경우 무시). (기본: ".")
+  -n, --no-push            커밋만 처리 (푸시 없음)
+  -f, --no-history         새로운 커밋 강제 처리 (기록 없이)
+  -h, --help               도움말 출력
+```
+
+### 21-3. 배포
+
+`deploy` 명령을 실행하면 자동 빌드 처리 후, 원격 저장소의 `master` 브랜치 `docs` 디렉토리에 빌드 결과가 배포됩니다.
+
+```bash
+$ npm run deploy
+```
+
+#### Github Pages 설정
+
+GitHub 원격 저장소 설정(Settings) → GitHub Pages 섹션에서 Source 항목 값을 
+`master branch/docs folter`로 설정합니다. 설정이 완료되면 배포된 웹사이트를 확인할 수 있습니다.
+
+> https://{계정이름}.github.io/{저장소이름}
+
+✦ [yamoo9.github.io/EdiyaUI](https://yamoo9.github.io/EdiyaUI) ✦

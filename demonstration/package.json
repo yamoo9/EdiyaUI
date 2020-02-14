@@ -12,6 +12,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -b master -d build -e docs"
   },
+  "homepage": "https://yamoo9.github.io/EdiyaUI",
   "browserslist": {
     "production": [
       ">0.2% in KR",
@@ -42,6 +43,5 @@
     "react-dom": "^16.12.0",
     "react-scripts": "^3.3.1",
     "serve": "^11.3.0"
-  },
-  "homepage": "https://yamoo9.github.io/EdiyaUI"
+  }
 }
