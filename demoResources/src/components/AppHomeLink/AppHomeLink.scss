@@ -1,0 +1,21 @@
+.appHeader {
+  &__brand {
+    margin-top: 0;
+    margin-bottom: 0;
+
+    .animate & {
+      opacity: 0;
+      transform: translateX(-4rem);
+      animation: transform-none 0.3s 0.7s cubic-bezier(0, 0, 0.23, 1.43) forwards;
+    }
+  }
+  &__homeLink {
+    box-sizing: content-box;
+    display: block;
+    width: 152px;
+    height: 15px;
+    padding: 26px;
+    background: url("~assets/ediya-logo.svg") no-repeat center;
+    background-size: 152px 15px;
+  }
+}
