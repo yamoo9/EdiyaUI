@@ -1,0 +1,25 @@
+{
+  "short_name": "EdiyaUI",
+  "name": "이디야(Ediya) UI",
+  "icons": [
+    {
+      "src": "assets/favicon.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "assets/logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "assets/logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#052e6b",
+  "background_color": "#ffffff"
+}

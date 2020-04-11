@@ -1,0 +1,418 @@
+/* --------------------------------------------
+ * 초기화 모듈 */
+
+.resetList {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.resetButton {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.a11yHidden {
+  overflow: hidden;
+  visibility: hidden;
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(100%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
+/* --------------------------------------------
+ * 공통 모듈 */
+
+::-moz-selection {
+  background: #233d84;
+  color: #ffffff;
+}
+
+::selection {
+  background: #070708;
+  color: #ffffff;
+}
+
+body {
+  margin: 0 auto;
+  max-width: 840px;
+  min-height: 100vh;
+  font: 100%/1.5 "Spoqa Han Sans", sans-serif;
+}
+
+body * {
+  -webkit-tap-highlight-color: rgba(255, 255, 200, 0.3);
+  /* tap-highlight-color: rgba(255, 255, 200, 0.3); */
+}
+
+nav a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a img {
+  vertical-align: middle;
+}
+
+/* --------------------------------------------
+ * 앱 헤더 스타일 */
+
+.appHeader {
+  position: fixed;
+  z-index: 600;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.4);
+  margin-bottom: 30px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* --------------------------------------------
+ * 홈 링크 스타일 */
+
+.homeLink__wrapper {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.homeLink__link {
+  display: block;
+  width: 152px;
+  height: 15px;
+  padding: 26px;
+  background: url("https://yamoo9.github.io/assets/images/ediya/ediya-logo.gif")
+    no-repeat center;
+  background-size: 152px 15px;
+}
+
+/* --------------------------------------------
+ * 앱 내비게이션 스타일 */
+
+.appNavigation {
+  overflow: hidden;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding-top: 60px;
+  background: hsla(225, 57%, 10%, 0.9);
+  color: #fff;
+  transition: all 0.4s cubic-bezier(0.66, -0.01, 0.3, 0.99);
+  -webkit-transform: translateX(105vw);
+  transform: translateX(105vw);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+}
+
+/* 활성화 스타일 */
+.appNavigation.is-active {
+  transform: translateX(0);
+}
+
+.appNavigation li {
+  border-bottom: 1px solid hsla(225, 57%, 30%, 0.5);
+}
+
+.appNavigation a {
+  display: block;
+  padding: 1em;
+  transition: all 0.4s ease;
+}
+
+.appNavigation a:hover,
+.appNavigation a:focus {
+  background: #2e437c;
+}
+
+/* --------------------------------------------
+ * 버튼 스타일 */
+
+.button {
+  cursor: pointer;
+}
+
+.button__open {
+  -webkit-user-select: none;
+  user-select: none;
+  padding: 20px;
+  background: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.button__open .ir {
+  display: block;
+  cursor: pointer;
+  width: 26px;
+  height: 22px;
+  background: url("https://yamoo9.github.io/assets/images/ediya/navigation-button.gif")
+    no-repeat 50%;
+}
+
+.button__open:hover,
+.button__open:focus {
+  background: #f5f5f5;
+}
+
+/* --------------------------------------------
+ * 앱 내비게이션 닫기 버튼 스타일 */
+
+.appNavigation .button__close {
+  position: absolute;
+  z-index: 10;
+  top: 10px;
+  right: 10px;
+  padding: 20px;
+  background: transparent;
+  color: #fff;
+  font-weight: 100;
+  font-size: 40px;
+  line-height: 0.5;
+  transition: all 0.4s ease;
+}
+
+.appNavigation .button__close:focus {
+  outline-offset: -5px;
+}
+
+.appNavigation .button__close:hover {
+  transform: scale(1.2);
+}
+
+/* --------------------------------------------
+ * 앱 메인 스타일 */
+
+.appMain {
+  margin-top: 90px;
+  max-width: 960px;
+  margin-left: 20px;
+  margin-right: 20px;
+  box-sizing: border-box;
+  margin-bottom: 40px;
+}
+
+@media screen and (min-width: 960px) {
+  .appMain {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* --------------------------------------------
+ * 음료 리스트 스타일 */
+
+.beverageList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row wrap;
+}
+
+/* --------------------------------------------
+ * 음료 리스트 아이템 스타일 */
+
+.beverageList__item {
+  position: relative;
+  flex: 1 1 40%;
+  margin: 10px 10px;
+}
+
+/* --------------------------------------------
+ * 음료 리스트 다이얼로그 열기 버튼 스타일 */
+
+.beverageList__button {
+  display: block;
+  background: #f5f5f5;
+  text-decoration: none;
+  color: #464646;
+}
+
+.beverageList__button figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.beverageList__button img {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  min-width: 240px;
+  width: 100%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-transform: scale(0.85);
+  transform: scale(0.85);
+  transition: all 0.4s ease;
+}
+
+.beverageList__button:hover img {
+  -webkit-transform: scale(0.95);
+  transform: scale(0.95);
+}
+
+.beverageList__button figcaption {
+  margin-top: -5px;
+  margin-bottom: 25px;
+}
+
+/* --------------------------------------------
+ * 음료 리스트 다이얼로그 스타일 */
+
+.beverageList__dialog {
+  opacity: 0;
+  position: absolute;
+  z-index: 500;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid #e0e0e0;
+  padding: 30px 20px;
+  background: rgba(255, 255, 255, 0.6);
+  transition: all 0.6s ease;
+}
+
+/* 활성화 */
+.beverageList__dialog.is-active {
+  opacity: 1;
+}
+
+/* --------------------------------------------
+ * 음료 리스트 다이얼로그 레이블 스타일 */
+
+.beverageList__dialogLabel {
+  display: block;
+  border-bottom: solid 2px #202023;
+  padding-bottom: 1em;
+  font-weight: 400;
+  font-size: 18px;
+  color: #202022;
+}
+
+.beverageList__dialogLabel span {
+  display: block;
+  font-size: 14px;
+  color: #939394;
+}
+
+/* --------------------------------------------
+ * 음료 리스트 다이얼로그 표시 성분 스타일 */
+
+.beverageList__criteria {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-column-gap: 20px;
+  column-gap: 20px;
+  -webkit-column-fill: auto;
+  column-fill: auto;
+  -webkit-column-rule: 1px solid #aaa;
+  column-rule: 1px solid #aaa;
+  padding: 1em 1.5em;
+  background: #f8f8f8;
+}
+
+.beverageList__criteria.is-2 {
+  -webkit-column-count: 2;
+  column-count: 2;
+}
+
+.beverageList__criteria dl {
+  margin: 0;
+  line-height: 1.6;
+  font-size: 13px;
+}
+
+.beverageList__criteria dt,
+.beverageList__criteria dd {
+  float: left;
+  width: 50%;
+  margin-left: 0;
+}
+
+.beverageList__criteria span {
+  display: block;
+}
+
+/* --------------------------------------------
+ * 음료 리스트 다이얼로그 닫기 버튼 스타일 */
+
+.beverageList__dialog .button__close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 9px 15px;
+  font-size: 24px;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.beverageList__dialog .button__close:hover {
+  background: #f3f3f3;
+}
+
+/* --------------------------------------------
+ * 페이지 상단 이동 버튼 스타일 */
+
+.goToTop {
+  overflow: hidden;
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  width: 50px;
+  height: 50px;
+  background: #dbe3f0;
+  border-radius: 50%;
+  transition: all 0.3s ease-out 0.1s;
+  transform: translateY(100px);
+}
+
+/* 활성화 */
+.goToTop.is-show {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+}
+
+.goToTop:hover svg {
+  animation: moveUpAndThenBackOut 0.45s ease-in-out;
+}
+
+/* --------------------------------------------
+ * 애니메이션 */
+
+@keyframes moveUpAndThenBackOut {
+  30% {
+    transform: translateY(-100px);
+  }
+  50% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(100px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
