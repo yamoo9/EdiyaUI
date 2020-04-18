@@ -1,9 +1,11 @@
 import React from 'react';
+
+import { navigation, beverageList } from '~/api/ediyaDB.json';
+import AppContext from '~/context/AppContext';
+
 import AppHeader from '~/components/AppHeader/AppHeader';
 import AppMain from '~/components/AppMain/AppMain';
 import GoToTop from '~/components/GoToTop/GoToTop';
-import AppContext from '~/context/AppContext';
-import { navigation, beverageList } from '~/api/ediyaDB.json';
 
 class App extends React.Component {
   state = {

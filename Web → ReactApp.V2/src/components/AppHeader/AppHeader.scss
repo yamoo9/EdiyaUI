@@ -1,0 +1,20 @@
+.appHeader {
+  position: fixed;
+  z-index: 600;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.4);
+  margin-bottom: 30px;
+  border-bottom: 1px solid #e0e0e0;
+
+  .animate & {
+    /* 0% */
+    opacity: 0;
+    transform: translateY(-4rem);
+    /* 100% */
+    animation: transform-none 0.35s 0.4s ease-out forwards;
+  }
+}

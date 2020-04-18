@@ -1,47 +1,53 @@
 import './AppHomeLink.scss';
 import React from 'react';
+import { string } from 'prop-types';
 import classNames from 'classnames';
+import A11yHidden from '@components/A11yHidden/A11yHidden';
 
+/**
+ * AppHomeLink 컴포넌트
+ */
 const AppHomeLink = ({
-  href,
-  title,
-  className,
   external,
   children,
+  className,
   wrapperProps: { as, className: wrapperClassName, ...restWrapperProps },
-  ...aNodeProps
+  ...linkProps
 }) => {
+  // as 컴포넌트 설정
   const WrapperComponent = as || AppHomeLink.defaultProps.wrapperProps.as;
 
-  const wrapperCombineClassNames = classNames(
-    'homeLink__wrapper',
+  // 링크 요소 클래스 병합
+  const combineClassNames = classNames('appHeader__homeLink', className);
+  // 래퍼 요소 클래스 병합
+  const combineWrapperClassNames = classNames(
+    'appHeader__brand',
     wrapperClassName
   );
 
-  const combineClassNames = classNames('homeLink__link', className);
-
+  // 렌더링
   return (
     <WrapperComponent
       {...restWrapperProps}
-      className={wrapperCombineClassNames}
+      className={combineWrapperClassNames}
     >
       <a
-        {...aNodeProps}
+        {...linkProps}
         className={combineClassNames}
-        href={href}
-        title={title}
         target={external ? '_blank' : null}
         rel={external ? 'noopener noreferrer' : null}
       >
-        {children || 'fsdfs'}
+        {children || <A11yHidden>홈 링크</A11yHidden>}
       </a>
     </WrapperComponent>
   );
 };
 
+AppHomeLink.propTypes = {
+  href: string.isRequired,
+};
+
 AppHomeLink.defaultProps = {
-  href: '/',
-  title: '홈페이지 이동',
   wrapperProps: {
     as: 'h1',
   },

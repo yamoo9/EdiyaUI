@@ -1,0 +1,88 @@
+.appNavigation {
+  overflow: hidden;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding-top: 60px;
+  background: hsla(225, 57%, 10%, 0.9);
+  color: #fff;
+  transition: all 0.4s cubic-bezier(0.66, -0.01, 0.3, 0.99);
+  -webkit-transform: translateX(105vw);
+  transform: translateX(105vw);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  
+  &.is-active {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  li {
+    border-bottom: 1px solid hsla(225, 57%, 30%, 0.5);
+  }
+
+  a {
+    display: block;
+    padding: 1em;
+    transition: all 0.4s ease;
+
+    &:hover,
+    &:focus {
+      background: #2e437c;
+    }
+  }
+
+}
+
+
+.is-open-menu {
+  cursor: pointer;
+  user-select: none;
+  padding: 20px;
+  background: #ffffff;
+  transition: all 0.3s ease;
+
+  .animate & {
+    opacity: 0;
+    transform: translateX(4rem);
+    animation: transform-none 0.45s 0.65s cubic-bezier(0, 0, 0, 1) forwards;
+  }
+  
+  &:hover,
+  &:focus {
+    background: #f5f5f5;
+  }
+}
+
+.ir {
+  cursor: pointer;
+  display: block;
+  width: 26px;
+  height: 22px;
+  background: url("~assets/navigation-button.gif") no-repeat 50%;
+}
+
+.is-close-menu {
+  position: absolute;
+  z-index: 10;
+  top: 10px;
+  right: 10px;
+  padding: 20px;
+  background: transparent;
+  color: #fff;
+  font-weight: 100;
+  font-size: 40px;
+  line-height: 0.5;
+  transition: all 0.4s ease;
+
+  &:focus {
+    outline-offset: -5px;
+  }
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}

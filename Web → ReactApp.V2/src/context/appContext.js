@@ -1,8 +1,8 @@
 import { createContext } from 'react';
 
-const contextInitialValue = {
+const initValue = {
   navigation: {},
   beverageList: [],
 };
 
-export default createContext(contextInitialValue);
+export default createContext(initValue);

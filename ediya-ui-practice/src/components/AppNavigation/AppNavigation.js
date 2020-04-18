@@ -1,43 +1,37 @@
-import React, { Component, Fragment } from 'react';
+import './AppNavigation.scss';
+import React, { useContext } from 'react';
 import AppContext from '~/context/AppContext';
+import AppButton from '../AppButton/AppButton';
+import A11yHidden from '../A11yHidden/A11yHidden';
+import { forwardRef } from 'react';
 
-export default class AppNavigation extends Component {
-  render() {
-    return (
-      <AppContext.Consumer>
-        {({ navigation: { title, items } }) => (
-          <Fragment>
-            <button
-              type="button"
-              className="resetButton button button__open"
-              title="메뉴 열기"
-              aria-label="메뉴 열기"
-            >
-              <span className="ir" />
-            </button>
-            <nav className="appNavigation" hidden>
-              <h2 className="a11yHidden">{title}</h2>
-              <ul className="resetList">
-                {items.map((item, index) => (
-                  <li key={`appNav-${index}`}>
-                    <a href={item.link}>{item.text}</a>
-                  </li>
-                ))}
-              </ul>
-              <button
-                className="resetButton button button__close"
-                type="button"
-                title="메뉴 닫기"
-                aria-label="메뉴 닫기"
-              >
-                <span className="close" aria-hidden="true">
-                  ×
-                </span>
-              </button>
-            </nav>
-          </Fragment>
-        )}
-      </AppContext.Consumer>
-    );
-  }
-}
+const AppNavigation = ({ open = false, handleCloseNav = () => {} }, navRef) => {
+  const { navigation: { title, items } } = useContext(AppContext);
+
+  return (
+    <nav ref={navRef} hidden={!open} className="appNavigation">
+      <A11yHidden as="h2">{title}</A11yHidden>
+      <ul className="resetList">
+        {items.map((item, index) => (
+          <li key={`appNav-${index}`}>
+            <a href={item.link}>{item.text}</a>
+          </li>
+        ))}
+      </ul>
+      <AppButton
+        className="button button__close"
+        title="메뉴 닫기"
+        aria-label="메뉴 닫기"
+        onClick={handleCloseNav}
+      >
+        <span className="close" aria-hidden="true">
+          ×
+        </span>
+      </AppButton>
+    </nav>
+  );
+};
+
+AppNavigation.displayName = 'AppNavigation';
+
+export default forwardRef(AppNavigation);
