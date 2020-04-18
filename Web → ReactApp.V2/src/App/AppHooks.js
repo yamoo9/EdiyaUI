@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import AppContext from '@context/appContext';
-import AppHeader from '@components/AppHeader/AppHeader';
+import AppHeader from '@components/AppHeader/StyledAppHeader';
 import AppMain from '@components/AppMain/AppMain';
 import GoToTop from '@components/GoToTop/GoToTop';
 
@@ -13,12 +13,12 @@ function App() {
   const [ beverageList, setBeverageList ] = useState([]);
 
   // 핸들러
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     const response = await fetch(process.env.REACT_APP_FB_API);
     const { navigation, beverageList } = await response.json();
     setNavigation(navigation);
     setBeverageList(beverageList);
-  };
+  }, []);
 
   // 라이프 사이클 훅 useEffect 훅
   useEffect(() => {
